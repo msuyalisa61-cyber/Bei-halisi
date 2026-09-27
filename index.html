@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bei Halisi - Tracker ya Bei ya Mahindi Tanzania</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">🌾 Bei Halisi</h1>
+                <p class="header-subtitle">Tracker ya Bei ya Mahindi Kupitia Kanda za Tanzania</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Region Selector -->
+        <section class="region-selector-section">
+            <label for="regionSelect" class="region-label">📍 Chagua Kanda Yako:</label>
+            <select id="regionSelect" class="region-select">
+                <option value="arusha">Arusha</option>
+                <option value="mbeya">Mbeya</option>
+                <option value="dodoma">Dodoma</option>
+                <option value="dar-es-salaam">Dar es Salaam</option>
+                <option value="morogoro">Morogoro</option>
+                <option value="iringa">Iringa</option>
+                <option value="manyara">Manyara</option>
+                <option value="kagera">Kagera</option>
+            </select>
+        </section>
+
+        <!-- Metric Summary Cards -->
+        <section class="metrics-section">
+            <div class="metric-card">
+                <div class="metric-icon">🏆</div>
+                <div class="metric-content">
+                    <h3 class="metric-title">Mahindi Yenye Faida Kubwa</h3>
+                    <p class="metric-value" id="profitableCrop">Mahindi</p>
+                    <p class="metric-detail" id="profitableMargin">+45% Faida</p>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📉</div>
+                <div class="metric-content">
+                    <h3 class="metric-title">Wakati Mzuri wa Kununua</h3>
+                    <p class="metric-value" id="bestBuyCrop">Mahindi</p>
+                    <p class="metric-detail" id="bestBuyDrop">-12% Kupimia</p>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📈</div>
+                <div class="metric-content">
+                    <h3 class="metric-title">Bei Inayojiongeza Sana</h3>
+                    <p class="metric-value" id="highestJumpCrop">Mahindi</p>
+                    <p class="metric-detail" id="highestJumpAmount">+18% Mwezi huu</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Price Table Section -->
+        <section class="table-section">
+            <h2 class="section-title">📊 Bei za Soko la Juma</h2>
+            <div class="table-responsive">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Jina la Mahindi</th>
+                            <th>Bei ya Soko (TZS/Gunia)</th>
+                            <th>Mabadiliko ya Juma</th>
+                            <th>Faida</th>
+                        </tr>
+                    </thead>
+                    <tbody id="priceTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Smart Market Advice Section -->
+        <section class="advice-section">
+            <h2 class="section-title">💡 Ujumbe wa Soko na Mwelekeo</h2>
+
+            <!-- Timeframe Toggle -->
+            <div class="timeframe-toggle">
+                <button class="toggle-btn active" data-timeframe="weekly">Upande wa Juma</button>
+                <button class="toggle-btn" data-timeframe="monthly">Upande wa Mwezi</button>
+                <button class="toggle-btn" data-timeframe="yearly">Upande wa Mwaka</button>
+            </div>
+
+            <!-- Profitable Region Banner -->
+            <div class="profitable-banner">
+                <p id="profitableBanner">📍 <strong>Mbeya</strong> ni kanda yenye faida kubwa kwa Mahindi leo!</p>
+            </div>
+
+            <!-- Chart and Advice Container -->
+            <div class="chart-advice-container">
+                <!-- Chart -->
+                <div class="chart-wrapper">
+                    <h3>📈 Mwelekeo wa Bei</h3>
+                    <div class="chart-container">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Advice Blocks -->
+                <div class="advice-blocks">
+                    <!-- Best Time to Sell -->
+                    <div class="advice-block sell-block">
+                        <div class="advice-icon">🟢</div>
+                        <h4>Wakati Mzuri wa Kuuza</h4>
+                        <p id="sellAdvice">Bei za mahindi sasa ni juu sana kuliko kawaida. Hii ni wakati mzuri kuuza mavuno yako sasa!</p>
+                    </div>
+
+                    <!-- Best Time to Hold -->
+                    <div class="advice-block hold-block">
+                        <div class="advice-icon">🔴</div>
+                        <h4>Wakati wa Kuhifadhi/Kusubiri</h4>
+                        <p id="holdAdvice">Bei za mahindi sasa ni chini. Inasadiki kuwa bei zitaongezeka baadaye. Kamatia mavuno yako sasa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crop Selector for Chart -->
+            <div class="crop-selector">
+                <label for="cropSelect">Chagua Mahindi kwa Mwelekeo:</label>
+                <select id="cropSelect" class="crop-select">
+                    <option value="maize">Mahindi</option>
+                    <option value="beans">Maharagwe</option>
+                    <option value="rice">Wali</option>
+                    <option value="cassava">Muhogo</option>
+                    <option value="millet">Ulezi</option>
+                </select>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Bei Halisi - Kwa Wakulima wa Tanzania. Kila haki zimehifadhiwa.</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
